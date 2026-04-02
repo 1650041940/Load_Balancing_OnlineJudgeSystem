@@ -1,0 +1,24 @@
+1053: C语言程序设计教程（第三版）课后习题6.4
+
+【Description】
+Description:
+求Sn=1!+2!+3!+4!+5!+…+n!之值，其中n是一个数字。
+
+Input:
+n
+
+Output:
+和
+
+HINT:
+本地测试通过之后，将 阶乘 和 阶乘累加 的两个变量改为long long int类型，
+
+输出用%lld，然后直接提交代码即可。
+
+【Sample Input】
+5
+
+【Sample Output】
+153
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

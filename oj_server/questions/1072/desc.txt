@@ -1,0 +1,19 @@
+1072: C语言程序设计教程（第三版）课后习题8.7
+
+【Description】
+Description:
+写一函数，将两个字符串中的元音字母复制到另一个字符串，然后输出。
+
+Input:
+一行字符串
+
+Output:
+顺序输出其中的元音字母（aeiuo）
+
+【Sample Input】
+abcde
+
+【Sample Output】
+ae
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

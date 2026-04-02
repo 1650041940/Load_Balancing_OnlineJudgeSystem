@@ -1,0 +1,24 @@
+1165: 2000年秋浙江省计算机等级考试二级C 编程题(2)
+
+【Description】
+Description:
+编制函数del_char
+
+函数原型为 void del_char(char *,char),函数的功能是删除a指向的字符串中值为ch的字符，例如从字符串"AscADef"中删除'A'后，字符串为"scDef"。
+
+Input:
+需要删除的字符ch
+
+需要处理的字符串
+
+Output:
+处理后的字符串
+
+【Sample Input】
+A
+AscADef
+
+【Sample Output】
+scDef
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

@@ -1,0 +1,54 @@
+1176: 2005年春浙江省计算机等级考试二级C 编程题(3)
+
+【Description】
+Description:
+Normal
+0
+
+7.8 磅
+0
+2
+
+false
+false
+false
+
+MicrosoftInternetExplorer4
+
+/* Style Definitions */
+table.MsoNormalTable
+{mso-style-name:普通表格;
+mso-tstyle-rowband-size:0;
+mso-tstyle-colband-size:0;
+mso-style-noshow:yes;
+mso-style-parent:"";
+mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+mso-para-margin:0cm;
+mso-para-margin-bottom:.0001pt;
+mso-pagination:widow-orphan;
+font-size:10.0pt;
+font-family:"Times New Roman";
+mso-fareast-font-family:"Times New Roman";
+mso-ansi-language:#0400;
+mso-fareast-language:#0400;
+mso-bidi-language:#0400;}
+
+输入一个正整数n (1≤ n ≤6),再输入一个n 行n列的矩阵，找出该矩阵中绝对值最大的元素以及它的行下标和列下标。
+
+Input:
+n
+
+nxn
+
+Output:
+数 行 列
+
+【Sample Input】
+2
+1 2
+3 4
+
+【Sample Output】
+4 2 2
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

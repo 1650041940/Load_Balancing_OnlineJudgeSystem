@@ -1,0 +1,30 @@
+1099: Happiness Hotel
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+The life of Little A is good, and, he managed to get enough money to run a hotel. The best for him is that he need not go to work outside, just wait for the money to go into his pocket. Little A wants everything to be perfect, he has a wonderful plan that he will keep one most beautiful reception whose size is 1()(which means the reception is 1 square meter). There are other k rooms that have the same area, and the area is x^2(), x is an integer; Little A wants his hotel to be a square. Little A is a good thinker, but not a good maker. As his poor performance on math, he cannot calculate the least area needed to build such a hotel of his will. Now, this task belongs to you, solve this problem to make Little A’s dream of Happy Hotel come true. Please be careful, the whole area should only contain k rooms, and the reception, there should not be any vacant place.
+
+Input:
+p { margin-bottom: 0.21cm; }
+There are several test cases.
+
+Each case contains only one integer k(1<=k<=1000) ,the number of rooms the hotel should have in one line.
+
+Proceed to the end of file.
+
+Output:
+p { margin-bottom: 0.21cm; }
+Output one integer d, means the hotel’s area is d^2(If there is no answer, output “no solution”) .The output of one test case occupied exactly one line.
+
+【Sample Input】
+1
+2
+3
+
+【Sample Output】
+no solution
+3
+2
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

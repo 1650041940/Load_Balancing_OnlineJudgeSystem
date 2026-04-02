@@ -1,0 +1,19 @@
+1171: 2003年秋浙江省计算机等级考试二级C 编程题(2)
+
+【Description】
+Description:
+输入两个正整数m和n(m<n)，求m到n之间(包括m和n)所有素数的和，要求定义并调用函数isprime(x)来判断x是否为素数(素数是除1以外只能被自身整除的自然数)。
+
+Input:
+m n
+
+Output:
+素数和
+
+【Sample Input】
+2 3
+
+【Sample Output】
+5
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

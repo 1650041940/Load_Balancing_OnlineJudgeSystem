@@ -1,0 +1,72 @@
+1175: 2005年春浙江省计算机等级考试二级C 编程题(2)
+
+【Description】
+Description:
+Normal
+0
+
+7.8 磅
+0
+2
+
+false
+false
+false
+
+MicrosoftInternetExplorer4
+
+st1\:*{behavior:url(#ieooui) }
+
+/* Style Definitions */
+table.MsoNormalTable
+{mso-style-name:普通表格;
+mso-tstyle-rowband-size:0;
+mso-tstyle-colband-size:0;
+mso-style-noshow:yes;
+mso-style-parent:"";
+mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+mso-para-margin:0cm;
+mso-para-margin-bottom:.0001pt;
+mso-pagination:widow-orphan;
+font-size:10.0pt;
+font-family:"Times New Roman";
+mso-fareast-font-family:"Times New Roman";
+mso-ansi-language:#0400;
+mso-fareast-language:#0400;
+mso-bidi-language:#0400;}
+
+输出一张摄氏一华氏温度转换表，摄氏温度的取值区间是[-1000 C，1500C ]，温度间隔50C。要求定义和调用函数 ctof(c),将摄氏温度C转换成华氏温度F，计算公式： 
+
+F = 32 + C* 9/5。
+
+例如
+
+c=0->f=32
+
+c=5->f=41
+
+c=10->f=50
+
+c=15->f=59
+
+c=20->f=68
+
+c=25->f=77
+
+c=30->f=86
+
+c=35->f=95
+
+c=40->f=104
+
+c=45->f=113
+
+c=50->f=122
+
+c=55->f=131
+
+c=60->f=140
+
+c=65->f=149
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

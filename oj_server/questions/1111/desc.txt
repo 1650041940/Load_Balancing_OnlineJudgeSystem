@@ -1,0 +1,42 @@
+1111: ChaeYeon
+
+【Description】
+Description:
+Chae Yeon is a popular pop female singer who rose to fame with her amazing sexy dance style and the sounds of nature voice she has. She proved to be a great dancer, and she showed off her vocals in her live performances. If you had ever seen her dance, I bet you’d love it.
+
+I felt stage lighting interesting when I was enjoying Chae Yeon’s performance. We all know that stage lighting instruments are used for the concerts and other performances taking place in live performance venues. They are also used to light the stages. Actually this is a color mixing process. There are two types of color mixing: Additive and Subtractive. Most stages use the former and in this case there are three primary colors: red, green, and blue. In the absence of color, or when no colors are showing, the stage is black. If all three primary colors are showing, the result is white. When red and green combine together, the result is yellow. When red and blue combine together, the result is magenta. When blue and green combine together, the result is cyan. When two same color combine together, the result is still that color.
+
+ 
+
+We have got the coordinate and the primary color of the figure that each Stage Lighting Instrument sent out. For simplicity’s sake, we can just treat the figure as a circle. Of course we’ll know the radius of each colored circle. Some color may be changed based on the Color Mixed Theory we mentioned above. Can you find the area of each color?
+
+Input:
+The first line consists of an integer T, indicating the number of test cases.
+
+The first line of each case consists of three integers R, G, B, indicating the number of red circles, green circles and blue circles. The next R + G + B lines, each line consists of three integer x, y, r, indicating the coordinate and the radius. The first R lines descript the red circles, the second G lines descript the green circles and the last B lines descript the blue circles.
+
+Output:
+Output seven floating numbers, they are the area of red, green, blue, white, yellow, magenta and cyan. Please take each number with two factional digits.
+
+Constraints
+
+0 < T <= 20
+
+0 <= R, G, B <= 100
+
+-100 <= x, y <= 100; 0 <= r <= 100
+
+HINT:
+Gentleman’s Reminder: please make sure that your program won’t output “-0.00”.
+
+【Sample Input】
+1
+1 1 1
+0 2 3
+2 0 3
+-2 0 3
+
+【Sample Output】
+9.28 15.04 15.04 4.92 7.04 7.04 1.28
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

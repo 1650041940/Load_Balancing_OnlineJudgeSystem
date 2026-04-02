@@ -1,0 +1,23 @@
+1162: 1999年秋浙江省计算机等级考试二级C 编程题(1)
+
+【Description】
+Description:
+编制程序，输入m,n(M>=n>=0)后,计算下列表达式的值并输出：
+
+         m!         
+
+n! (m-n)!
+
+Input:
+m n
+
+Output:
+对应表达式的值
+
+【Sample Input】
+2 1
+
+【Sample Output】
+2
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

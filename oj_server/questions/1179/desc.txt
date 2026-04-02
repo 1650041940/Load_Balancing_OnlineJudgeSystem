@@ -1,0 +1,14 @@
+1179: C二级辅导-进制转换
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+编程，输入一个１０进制正整数，然后输出它所对应的八进制数。
+
+【Sample Input】
+10
+
+【Sample Output】
+12
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

@@ -1,0 +1,99 @@
+1156: Like Water for Clay
+
+【Description】
+Description:
+People do strange things. Recently, some folks have started building structures out of Stick-Tite blocks ("They stick ... tight!"), pressing them between two sheets of perspex, and dunking them in water.
+
+Yeah, I don't know either.
+
+Stick-Tite blocks are one inch cubes of some sort of material that is permeable to air but not water. They stick quite nicely to each other when properly aligned, such that it's delightfully easy to make any sort of nice pixel-esque structure. They also stick well (but not too well) to perspex (also known as Plexiglas(tm)).
+
+When dunked underwater and shaken about a bit, water fills the open space in a Stick-Tite construction such that any open spaces are filled unless they are completely enclosed inside the construction. While Stick-Tite blocks are water-impermeable, water can fill from any open space to any other open space that is orthogonally or diagonally adjacent.
+
+ 
+ 
+ 
+ 
+X..
+.X.
+..X
+
+ 
+ Water can flow between the top-right and bottom-left areas
+ 
+ 
+ 
+ 
+X..
+XXX
+...
+
+ 
+ Water cannot flow between the top-right and bottom-left areas
+ 
+ 
+
+Consider the above two examples of such a construction. At the top, water can come through the blocks (represented by Xes) to fill the top chamber. At the bottom, water would not be able to flow between the two areas unless they were connected elsewhere.
+
+After being dunked and wiggled, the Stick-Tite construction is pulled straight out of the water. Water drains out from any holes in the bottom or sides of the construction, coming out of all internal chambers and passages until the water level is even with the bottom of holes in the sides of chambers. In addition, due to static water pressure, the height of water in any pool still connected after this draining will never be higher than the bottom of the lowest hole that the pool's water can flow from.
+
+XXXXXXXXXXX
+XX......XXX
+XXX.XXXXX.X
+X...X.XXXXX
+X.X.X...X.X
+X.X~X~X.X.X
+X.X~~~X...X
+X.XXXXXXX.X
+
+In the above example, the tildes represent the maximum amount of water that the center pool can hold; while the left side has a hole one unit higher than the right side, the water level for the pool as a whole cannot be higher than the one on the right side. The act of draining pools may make a pool of water into smaller, separate pools; these would then drain independently.
+
+XXXXXXXXXXX
+X......X..X
+X.XXXX~X..X
+X.X~~~~X...
+X~XXXXXX~~X
+X~~~~~~X~~X
+X~~~~~~~~~X
+XXXXXXXXXXX
+
+A particular Stick-Tite construction will hold different amounts of water depending on which direction it's dunked into the bucket from. Given the blocks comprising a particular construction, you will determine how much water it can hold when dunked with each of its four edges facing straight up. (The construction is dried out completely between dunkings.)
+
+Input:
+Input to this problem will begin with a line containing a single integer N (1 ≤ N ≤ 100) indicating the number of data sets. Each data set consists of the following components:
+
+ A line containing two integers H and W (1 ≤ H, W ≤ 40) representing the height and width of the following Stick-Tite construction;
+ H lines representing the blocks, each with W characters, with:
+ 
+ X representing Stick-Tite blocks, and
+ . representing open spaces.
+
+Output:
+For each data set, print a single line of four space-separated integers, sorted from highest to lowest, representing the number of cubic inches of water the Stick-Tite structure can hold after being submerged and drained four times, each time with a different one of the four edges facing straight up.
+
+【Sample Input】
+2
+8 11
+XXXXXXXXXXX
+XX......XXX
+XXX.XXXXX.X
+X...X.XXXXX
+X.X.X...X.X
+X.X.X.X.X.X
+X.X...X...X
+X.XXXXXXX.X
+8 11
+XXXXXXXXXXX
+X......X..X
+X.XXXX.X..X
+X.X....X...
+X.XXXXXX..X
+X......X..X
+X.........X
+XXXXXXXXXXX
+
+【Sample Output】
+31 5 4 1
+40 25 24 10
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

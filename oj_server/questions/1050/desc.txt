@@ -1,0 +1,19 @@
+1050: C语言程序设计教程（第三版）课后习题6.1
+
+【Description】
+Description:
+输入两个正整数m和n，求其最大公约数和最小公倍数。
+
+Input:
+两个整数
+
+Output:
+最大公约数，最小公倍数
+
+【Sample Input】
+5 7
+
+【Sample Output】
+1 35
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

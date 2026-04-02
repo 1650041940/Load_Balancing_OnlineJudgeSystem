@@ -110,6 +110,120 @@ namespace ns_control
         mutable std::mutex _mtx;
     };
 
+    class UserStore
+    {
+    public:
+        explicit UserStore(const std::string &path) : _path(path)
+        {
+            EnsureDataDir("./data");
+            Load();
+        }
+
+        static bool IsValidUsername(const std::string &username)
+        {
+            if (username.size() < 3 || username.size() > 20)
+                return false;
+            for (char c : username)
+            {
+                const bool ok = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '_';
+                if (!ok)
+                    return false;
+            }
+            return true;
+        }
+
+        bool Register(const std::string &username, std::string *uid_out, std::string *err)
+        {
+            if (!IsValidUsername(username))
+            {
+                if (err)
+                    *err = "用户名仅允许字母/数字/下划线，长度 3~20";
+                return false;
+            }
+            std::lock_guard<std::mutex> lock(_mtx);
+            if (_username_to_uid.count(username))
+            {
+                if (err)
+                    *err = "用户名已存在";
+                return false;
+            }
+            const std::string uid = FileUtil::UniqFileName();
+            _username_to_uid[username] = uid;
+            _uid_to_username[uid] = username;
+            Append(username, uid);
+            if (uid_out)
+                *uid_out = uid;
+            return true;
+        }
+
+        bool Login(const std::string &username, std::string *uid_out, std::string *err) const
+        {
+            std::lock_guard<std::mutex> lock(_mtx);
+            auto it = _username_to_uid.find(username);
+            if (it == _username_to_uid.end())
+            {
+                if (err)
+                    *err = "用户名不存在，请先注册";
+                return false;
+            }
+            if (uid_out)
+                *uid_out = it->second;
+            return true;
+        }
+
+        std::string GetUsernameByUid(const std::string &uid) const
+        {
+            std::lock_guard<std::mutex> lock(_mtx);
+            auto it = _uid_to_username.find(uid);
+            if (it == _uid_to_username.end())
+                return "";
+            return it->second;
+        }
+
+    private:
+        void Load()
+        {
+            std::ifstream in(_path);
+            if (!in.is_open())
+                return;
+            std::string line;
+            Json::Reader reader;
+            while (std::getline(in, line))
+            {
+                if (line.empty())
+                    continue;
+                Json::Value v;
+                if (!reader.parse(line, v))
+                    continue;
+                const std::string username = v.get("username", "").asString();
+                const std::string uid = v.get("uid", "").asString();
+                if (username.empty() || uid.empty())
+                    continue;
+                _username_to_uid[username] = uid;
+                _uid_to_username[uid] = username;
+            }
+        }
+
+        void Append(const std::string &username, const std::string &uid)
+        {
+            std::ofstream out(_path, std::ios::out | std::ios::app);
+            if (!out.is_open())
+                return;
+            Json::Value v;
+            v["ts_ms"] = Json::UInt64(std::stoull(TimeUtil::GetTimeMs()));
+            v["username"] = username;
+            v["uid"] = uid;
+            Json::FastWriter writer;
+            out << writer.write(v) << "\n";
+        }
+
+    private:
+        std::string _path;
+        mutable std::mutex _mtx;
+        std::unordered_map<std::string, std::string> _username_to_uid;
+        std::unordered_map<std::string, std::string> _uid_to_username;
+    };
+
     // 提供服务的主机，每个主机可以负载多个服务
     class Machine
     {
@@ -319,7 +433,7 @@ namespace ns_control
     class Control
     {
     public:
-        Control() : _store("./data/submissions.jsonl")
+        Control() : _store("./data/submissions.jsonl"), _users("./data/users.jsonl")
         {
             EnsureDataDir("./data");
             StartWorkers(4);
@@ -336,7 +450,7 @@ namespace ns_control
             _loadblance.OnlineMachine();
         }
         // 根据题库数据构建网页 传入html输出型参数
-        bool AllQuestions(string *html)
+        bool AllQuestions(const std::string &user_id, string *html)
         {
             vector<Question> all;
             bool ret = true;
@@ -345,8 +459,23 @@ namespace ns_control
                 // 给题目进行排序
                 sort(all.begin(), all.end(), [](const Question &q1, const Question &q2)
                      { return stoi(q1.number.c_str()) < stoi(q2.number.c_str()); }); // 小于升序排序，大于降序排序
+                // 生成 Top3 推荐（用于题库页突出推荐系统）
+                std::unordered_map<std::string, Question> qmap;
+                for (const auto &q : all)
+                    qmap[q.number] = q;
+                std::unordered_map<std::string, std::unordered_set<std::string>> userSolved;
+                std::unordered_map<std::string, uint64_t> acceptCount;
+                _store.LoadAccepted(&userSolved, &acceptCount);
+
+                std::vector<std::pair<Question, double>> recs;
+                BuildRecommend(user_id, qmap, userSolved, acceptCount, &recs);
+                if (recs.size() > 3)
+                    recs.resize(3);
+
+                const std::string username = DisplayName(user_id);
+
                 // 获取题库信息成功，把题库构建成网页
-                _view.AllExpandHtml(all, html);
+                _view.AllExpandHtml(all, recs, username, html);
             }
             else
             {
@@ -357,14 +486,14 @@ namespace ns_control
         }
 
         // 构建指定单个题目的网页
-        bool OneQuestion(const string &number, string *html)
+        bool OneQuestion(const std::string &user_id, const string &number, string *html)
         {
             Question q;
             bool ret = true;
             if (_model.GetOneQuestion(number, &q))
             {
                 // 获取单个题目信息成功，构建网页
-                _view.OneExpandHtml(q, html);
+                _view.OneExpandHtml(q, DisplayName(user_id), html);
             }
             else
             {
@@ -372,6 +501,24 @@ namespace ns_control
                 ret = false;
             }
             return ret;
+        }
+
+        bool RegisterUser(const std::string &username, std::string *uid_out, std::string *err)
+        {
+            return _users.Register(username, uid_out, err);
+        }
+
+        bool LoginUser(const std::string &username, std::string *uid_out, std::string *err) const
+        {
+            return _users.Login(username, uid_out, err);
+        }
+
+        std::string DisplayName(const std::string &uid) const
+        {
+            const std::string u = _users.GetUsernameByUid(uid);
+            if (!u.empty())
+                return u;
+            return "游客";
         }
 
         // 判断题目
@@ -525,7 +672,7 @@ namespace ns_control
 
             std::vector<std::pair<Question, double>> recs;
             BuildRecommend(user_id, qmap, userSolved, acceptCount, &recs);
-            _view.RecommendExpandHtml(recs, html);
+            _view.RecommendExpandHtml(recs, DisplayName(user_id), html);
             return true;
         }
 
@@ -743,7 +890,11 @@ namespace ns_control
                     pop.push_back({q.first, acceptCount.count(q.first) ? acceptCount.at(q.first) : 0});
                 }
                 std::sort(pop.begin(), pop.end(), [](const std::pair<std::string, uint64_t> &a, const std::pair<std::string, uint64_t> &b)
-                          { return a.second > b.second; });
+                          {
+                              if (a.second != b.second)
+                                  return a.second > b.second;
+                              return std::stoi(a.first) < std::stoi(b.first);
+                          });
                 size_t topn = std::min<size_t>(10, pop.size());
                 for (size_t i = 0; i < topn; i++)
                 {
@@ -771,6 +922,7 @@ namespace ns_control
         LoadBlance _loadblance; // 核心负载均衡控制器
 
         SubmissionStore _store;
+        UserStore _users;
 
         std::atomic<bool> _stop{false};
         std::mutex _task_mtx;

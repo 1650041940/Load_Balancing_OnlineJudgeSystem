@@ -1,0 +1,59 @@
+1112: Dolphin
+
+【Description】
+Description:
+Dolphins are marine mammals that are closely related to whales and porpoises. They might have some kind of the biggest brains in the water, but are dolphins really smart? Some scientists say that they use their big brains to stay warm in the sea, rather than for lots of thinking. Obviously those scientists don’t think dolphins are smart.
+
+We know that the brain is made up of two types of cells – neurons and glia. Neurons do the thinking, while glia do things like keeping the brain warm to help the neurons. After looking at how dolphins’ brains are put together, they claim that dolphins have lots of glia and not many neurons.
+
+In order to find out how smart the dolphins are, we throw one of them into a maze we've just created, to see how long it'll take the dolphin to get out.
+
+The maze consists of nodes and bidirectional edges connecting them. 
+
+The dolphin needs power to swim, so we place exactly one fish at each node for him to enjoy.
+
+The dolphin is not interested in eating the same kind of fish more than once, but he can't resist any food if it's just in front to him! As a result, the dolphin decided to PLAN a route before going, so that it will not REACH any kind of fish more than once.
+
+Given the information above, can you tell me the minimum time that the dolphin needs to get out?
+
+Input:
+The first line consists of an integer T, indicating the number of test cases.
+
+The first line of each case consists of four integers N, M, S and E, indicating the number of nodes, the number of edges, the starting node and destination.
+
+Each of the next M lines consists of three integers U, V, C, indicating that there is an edge with length C between node U and V. It will take a dolphin C time to pass this edge.
+
+The next line consists of N integers. Ki indicates the label of which kind fishes i-th node has.
+
+Output:
+Output the minimum time that a dolphin needs to get to the destination on a single line. If a dolphin can never get to the destination, please output -1.
+
+Constraints
+
+0 < T <= 20
+
+2 <= N <= 100; 0 <= M <= 10000; 0 <= S, E < N
+
+0 <= U, V < N; 0 < C <= 1000
+
+0 <= Ki < 1000
+
+There may be more than one edge between two nodes, and may be loop, an edge that begins and ends both on the same vertex. All edges are bidirectional.
+
+【Sample Input】
+2
+2 1 0 1
+0 1 1
+0 0
+4 4 0 3
+0 1 1
+1 3 1
+0 2 2
+2 3 2
+0 0 1 2
+
+【Sample Output】
+-1
+4
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

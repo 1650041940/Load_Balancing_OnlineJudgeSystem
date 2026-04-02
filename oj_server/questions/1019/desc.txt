@@ -1,0 +1,29 @@
+1019: Necklace Decomposition
+
+【Description】
+Description:
+The set of cyclic rotations of a string are the strings obtained by embedding the string clockwise on a ring, with the first character following on the last, starting at any character position and moving clockwise on the ring until the character preceeding the starting character is reached. A string is a necklace if it is the lexicographically smallest among all its cyclic rotations. For instance, for the string 01011 the cyclic rotations are (10110,01101,11010,10101,01011), and furthermore 01011 is the smallest string and hence, a necklace. 
+Any string S can be written in a unique way as a concatenation S = T1T2 . . . Tk of necklaces Ti such that Ti+1
+
+Input:
+On the first line of the input is a single positive integer n, telling the number of test scenarios to follow. Each scenario consists of one line containing a non-empty string of zeros and ones of length at most 100.
+
+Output:
+For each scenario, output one line containing the necklace decomposition of the string. The necklaces should be written as '(' necklace ')'.
+
+【Sample Input】
+5
+0
+0101
+0001
+0010
+11101111011
+
+【Sample Output】
+(0)
+(0101)
+(0001)
+(001)(0)
+(111)(01111)(011)
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

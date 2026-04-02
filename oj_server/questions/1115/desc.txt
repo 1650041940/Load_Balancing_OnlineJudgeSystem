@@ -1,0 +1,34 @@
+1115: GCC
+
+【Description】
+Description:
+The GNU Compiler Collection (usually shortened to GCC) is a compiler system produced by the GNU Project supporting various programming languages. But it doesn’t contains the math operator “!”.
+
+In mathematics the symbol represents the factorial operation. The expression n! means "the product of the integers from 1 to n". For example, 4! (read four factorial) is 4 × 3 × 2 × 1 = 24. (0! is defined as 1, which is a neutral element in multiplication, not multiplied by anything.)
+
+We want you to help us with this formation: (0! + 1! + 2! + 3! + 4! + ... + n!)%m
+
+Input:
+The first line consists of an integer T, indicating the number of test cases.
+
+Each test on a single consists of two integer n and m.
+
+Output:
+Output the answer of (0! + 1! + 2! + 3! + 4! + ... + n!)%m.
+
+Constrains
+
+0 < T <= 20
+
+0 <= n < 10^100 (without leading zero)
+
+0 < m < 1000000
+
+【Sample Input】
+1 
+10 861017
+
+【Sample Output】
+593846
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

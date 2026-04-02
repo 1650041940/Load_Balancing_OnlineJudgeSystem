@@ -1,0 +1,60 @@
+1003: A+B for Input-Output Practice (I)
+
+【Description】
+Description:
+Your task is to Calculate a + b.
+Too easy?! Of course! I specially designed the problem for acm beginners.
+You must have found that some problems have the same titles with this one, yes, all these problems were designed for the same aim
+
+Input:
+The input will consist of a series of pairs of integers a and b, separated by a space, one pair of integers per line.
+
+Output:
+For each pair of input integers a and b you should output the sum of a and b in one line, and with one line of output for each line in input.
+
+HINT:
+这是一个求两数之和的题目，输入多对用空格分开的两个数a b，输出a+b的和，每一对数据的和占一行。编写代码时需要注意的是，由于没有指出有多少对输入数据，因此我们可以编写如下代码：
+
+//C语言
+
+#include <stdio.h>
+
+int main() //把main函数定义成int类型
+
+{
+
+int a,b;
+
+while(scanf("%d %d",&a, &b) != EOF) // 输入结束时，scanf函数返回值为EOF，即没有数据输入时则退出while循环
+
+printf("%d\n",a+b);
+
+return 0; //返回值为0
+
+}
+
+//或者C++语言
+
+#include <iostream> //注意头文件的使用方法
+
+using namespace std;
+
+int main()
+
+{
+
+int a,b;
+
+while(cin >> a >> b)
+
+cout
+
+【Sample Input】
+1 5
+10 20
+
+【Sample Output】
+6
+30
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

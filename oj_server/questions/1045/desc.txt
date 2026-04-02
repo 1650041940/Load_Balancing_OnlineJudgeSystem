@@ -1,0 +1,19 @@
+1045: C语言程序设计教程（第三版）课后习题5.4
+
+【Description】
+Description:
+有三个整数a b c,由键盘输入，输出其中的最大的数。
+
+Input:
+一行数组，分别为a b c
+
+Output:
+a b c其中最大的数
+
+【Sample Input】
+10 20 30
+
+【Sample Output】
+30
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

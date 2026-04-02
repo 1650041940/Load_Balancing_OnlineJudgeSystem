@@ -1,0 +1,41 @@
+1110: Arbiter
+
+【Description】
+Description:
+Arbiter is a kind of starship in the StarCraft science-fiction series. The Arbiter-class starship is a Protoss warship specializing in providing psychic support. Arbiters were crewed exclusively by Judicators; unlike other warships that were manned predominantly by Templar. The Judicator used the Arbiter as a base to provide support using space-time manipulation.
+
+Arbiters could weaken space-time, tearing rifts in the fabric of space-time, creating a vortex linking another location to the Arbiter’s location. This could be used to move personnel over long distances between stars.
+
+In the meantime of widely used Arbiter to transfer, KMXS, the captain of one Arbiter, was warning that some person had got a serious mental disorder after the trip on his Arbiter. By using mice as model animals, he found the sake, it’s because of chirality!
+
+Every person has chirality, either left-handed or right-handed. Actually all the persons must live with the food which has the same chirality. When one person took Arbiter from one star to another one, his chirality will be changed (from left-handed to right-handed or from right-handed to left-handed). If a person took a long trip and finally got back to his own star, however, his chirality might be changed to the opposite state other than his original, which would cause fatal mental disorder, or even death. 
+
+KMXS has the channels map among the starts and he need to prohibit minimum number of channels from traveling so that wherever a person starts his traveling from when he gets his original star he’ll be safe. KMXS turns to your help.
+
+Input:
+The first line of input consists of an integer T, indicating the number of test cases.
+
+The first line of each case consists of two integers N and M, indicating the number of stars and the number of channels. Each of the next M lines indicates one channel (u, v) which means there is a bidirectional channel between star u and star v (u is not equal to v).
+
+Output:
+Output one integer on a single line for each case, indicating the minimum number of channels KMXS must prohibit to avoid mental disorder.
+
+Constraints
+
+0 < T <= 10
+
+0 <= N <= 15 0 <= M <= 300
+
+0 <= u, v < N and there may be more than one channel between two stars.
+
+【Sample Input】
+1
+3 3
+0 1
+1 2
+2 0
+
+【Sample Output】
+1
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

@@ -10,6 +10,8 @@
 
 - **并发评测**：`oj_server` 内置“任务队列 + 工作线程池”，支持异步提交、实时状态查询（PENDING/RUNNING/DONE）。
 - **推荐算法**：基于历史提交记录（Accepted）做物品协同过滤，提供推荐页面 `/recommend` 与 API `/api/recommend`。
+- **用户注册/登录（演示版）**：用户名绑定到 `uid`（不需要密码），用于区分个人推荐与做题记录。
+- **题库扩充与前端美化**：新增多道练习题，页面统一样式（`/style.css`），题库页展示 Top3 推荐。
 
 ## 环境依赖（Ubuntu/Debian）
 
@@ -77,6 +79,8 @@ cd oj_server
 - 首页：`http://localhost:8080/`
 - 题库：`http://localhost:8080/all_questions`
 - 推荐：`http://localhost:8080/recommend`
+- 注册：`http://localhost:8080/register`
+- 登录：`http://localhost:8080/login`
 
 提交代码后会显示任务 ID，并实时轮询展示评测状态与结果。
 
@@ -87,10 +91,14 @@ cd oj_server
 - `POST /judge/{number}`：同步评测（保留兼容）
 - `GET /recommend`：推荐页面
 - `GET /api/recommend`：推荐数据 JSON
+- `POST /api/register`：注册（JSON：`{"username":"..."}`）
+- `POST /api/login`：登录（JSON：`{"username":"..."}`）
+- `GET /logout`：退出（清除 uid cookie）
 
 ## 数据与日志
 
 - 历史提交记录：`oj_server/data/submissions.jsonl`（用于推荐算法）
+- 用户数据：`oj_server/data/users.jsonl`
 - 日志：`oj_server/oj_server.log`、`compile_server/compile_server.log`
 
 ## 打包发布

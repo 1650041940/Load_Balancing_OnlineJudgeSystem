@@ -1,0 +1,29 @@
+1092: Dinner
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+Little A is one member of ACM team. He had just won the gold in World Final. To celebrate, he decided to invite all to have one meal. As bowl, knife and other tableware is not enough in the kitchen, Little A goes to take backup tableware in warehouse. There are many boxes in warehouse, one box contains only one thing, and each box is marked by the name of things inside it. For example, if "basketball" is written on the box, which means the box contains only basketball. With these marks, Little A wants to find out the tableware easily. So, the problem for you is to help him, find out all the tableware from all boxes in the warehouse.
+
+Input:
+p { margin-bottom: 0.21cm; }
+There are many test cases. Each case contains one line, and one integer N at the first, N indicates that there are N boxes in the warehouse. Then N strings follow, each string is one name written on the box.
+
+Output:
+p { margin-bottom: 0.21cm; }
+For each test of the input, output all the name of tableware.
+
+HINT:
+p { margin-bottom: 0.21cm; }
+
+The tableware only contains: bowl, knife, fork and chopsticks.
+
+【Sample Input】
+3 basketball fork chopsticks
+2 bowl letter
+
+【Sample Output】
+fork chopsticks
+bowl
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

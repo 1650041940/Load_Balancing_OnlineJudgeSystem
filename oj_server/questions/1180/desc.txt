@@ -1,0 +1,16 @@
+1180: C二级辅导-温度转换
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+输入一个华氏温度，要求输出摄氏温度。公式为
+
+保留两位小数
+
+【Sample Input】
+-40
+
+【Sample Output】
+-40.00
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

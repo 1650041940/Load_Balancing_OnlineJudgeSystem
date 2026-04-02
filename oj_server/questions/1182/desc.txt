@@ -1,0 +1,15 @@
+1182: C二级辅导-求偶数和
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+编制程序，输入n个整数（n从键盘输入，n>0），输出它们的偶数和。
+
+【Sample Input】
+2
+1 2
+
+【Sample Output】
+2
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

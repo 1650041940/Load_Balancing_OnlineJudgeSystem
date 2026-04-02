@@ -1,0 +1,14 @@
+1183: C二级辅导-等差数列
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+sum=2+5+8+11+14+…，输入正整数n，求sum的前n项和。
+
+【Sample Input】
+2
+
+【Sample Output】
+7
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

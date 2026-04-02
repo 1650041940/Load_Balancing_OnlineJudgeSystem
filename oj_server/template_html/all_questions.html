@@ -1,143 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>在线OJ-题目列表</title>
-    <style>
-        /* 起手式, 100%保证我们的样式设置可以不受默认影响 */
-        * {
-            /* 消除网页的默认外边距 */
-            margin: 0px;
-            /* 消除网页的默认内边距 */
-            padding: 0px;
-        }
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-        }
-
-        .container .navbar {
-            width: 100%;
-            height: 50px;
-            background-color: black;
-            /* 给父级标签设置overflow，取消后续float带来的影响 */
-            overflow: hidden;
-        }
-
-        .container .navbar a {
-            /* 设置a标签是行内块元素，允许你设置宽度 */
-            display: inline-block;
-            /* 设置a标签的宽度,a标签默认行内元素，无法设置宽度 */
-            width: 80px;
-            /* 设置字体颜色 */
-            color: white;
-            /* 设置字体的大小 */
-            font-size: large;
-            /* 设置文字的高度和导航栏一样的高度 */
-            line-height: 50px;
-            /* 去掉a标签的下划线 */
-            text-decoration: none;
-            /* 设置a标签中的文字居中 */
-            text-align: center;
-        }
-
-        /* 设置鼠标事件 */
-        .container .navbar a:hover {
-            background-color: green;
-        }
-
-        .container .navbar .login {
-            float: right;
-        }
-
-        .container .question_list {
-            padding-top: 50px;
-            width: 800px;
-            height: 100%;
-            margin: 0px auto;
-            /* background-color: #ccc; */
-            text-align: center;
-        }
-
-        .container .question_list table {
-            width: 100%;
-            font-size: large;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            margin-top: 50px;
-            background-color: rgb(243, 248, 246);
-        }
-
-        .container .question_list h1 {
-            color: green;
-        }
-
-        .container .question_list table .item {
-            width: 100px;
-            height: 40px;
-            font-size: large;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .container .question_list table .item a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .container .question_list table .item a:hover {
-            color: blue;
-            text-decoration: underline;
-        }
-
-        .container .footer {
-            width: 100%;
-            height: 50px;
-            text-align: center;
-            line-height: 50px;
-            color: #ccc;
-            margin-top: 15px;
-        }
-    </style>
+    <title>Online OJ - 题库</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <!-- 导航栏， 功能不实现-->
-        <div class="navbar">
-            <a href="/">首页</a>
-            <a href="/all_questions">题库</a>
-            <a href="/recommend">推荐</a>
-            <a href="#">竞赛</a>
-            <a href="#">讨论</a>
-            <a href="#">求职</a>
-            <a class="login" href="#">登录</a>
-        </div>
-        <div class="question_list">
-            <h1>OnlineJuge题目列表</h1>
-            <table>
-                <tr>
-                    <th class="item">编号</th>
-                    <th class="item">标题</th>
-                    <th class="item">难度</th>
-                </tr>
-                {{#question_list}}
-                <tr>
-                    <td class="item">{{number}}</td>
-                    <td class="item"><a href="/question/{{number}}">{{title}}</a></td>
-                    <td class="item">{{star}}</td>
-                </tr>
-                {{/question_list}}
-            </table>
-        </div>
-        <div class="footer">
-            <!-- <hr> -->
-            <h4>@东方未明0108</h4>
+    <div class="navbar">
+        <div class="inner">
+            <div class="left">
+                <a class="brand" href="/">Online OJ</a>
+                <a href="/all_questions">题库</a>
+                <a href="/recommend">为你推荐</a>
+            </div>
+            <div class="right">
+                <span class="pill">用户：{{username}}</span>
+                <a href="/login">登录</a>
+                <a href="/register">注册</a>
+                <a href="/logout">退出</a>
+            </div>
         </div>
     </div>
+
+    <div class="page">
+        <div class="hero">
+            <h1>题库</h1>
+            <p>提交通过记录会用于生成个性化推荐（物品协同过滤 + 热门回退）。</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="hd">
+                    <h2>为你推荐（Top 3）</h2>
+                    <p>如果你还没有做题记录，会展示热门题。</p>
+                </div>
+                <div class="bd">
+                    <table class="table">
+                        <tr>
+                            <th>题号</th>
+                            <th>标题</th>
+                            <th>难度</th>
+                            <th>分数</th>
+                        </tr>
+                        {{#recommend_list}}
+                        <tr>
+                            <td>{{number}}</td>
+                            <td><a href="/question/{{number}}">{{title}}</a></td>
+                            <td>{{star}}</td>
+                            <td>{{score}}</td>
+                        </tr>
+                        {{/recommend_list}}
+                    </table>
+                    <div style="margin-top:12px; display:flex; gap:10px;">
+                        <a class="btn primary" href="/recommend">查看完整推荐</a>
+                        <a class="btn ghost" href="/api/recommend">推荐 API</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="hd">
+                    <h2>全部题目</h2>
+                    <p>点击标题进入做题页；评测采用异步队列 + 多节点负载均衡。</p>
+                </div>
+                <div class="bd">
+                    <table class="table">
+                        <tr>
+                            <th style="width:90px;">编号</th>
+                            <th>标题</th>
+                            <th style="width:140px;">难度</th>
+                        </tr>
+                        {{#question_list}}
+                        <tr>
+                            <td>{{number}}</td>
+                            <td><a href="/question/{{number}}">{{title}}</a></td>
+                            <td>{{star}}</td>
+                        </tr>
+                        {{/question_list}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">© Online OJ Demo</div>
 
 </body>
 

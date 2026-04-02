@@ -1,0 +1,19 @@
+1076: C语言程序设计教程（第三版）课后习题9.2
+
+【Description】
+Description:
+输入两个整数，求他们相除的余数。用带参的宏来实现，编程序。
+
+Input:
+a b两个数
+
+Output:
+a/b的余数
+
+【Sample Input】
+3 2
+
+【Sample Output】
+1
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

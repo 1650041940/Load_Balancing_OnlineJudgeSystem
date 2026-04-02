@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <iomanip>
 #include <utility>
 
 #include <ctemplate/template.h>
@@ -23,7 +25,10 @@ namespace ns_view
         ~View() {}
 
     public:
-        void AllExpandHtml(const vector<Question> &questions, string *html)
+        void AllExpandHtml(const vector<Question> &questions,
+                           const vector<pair<Question, double>> &recommends,
+                           const string &username,
+                           string *html)
         {
             // 题目的编号 题目的标题 题目的难度
             // 推荐使用表格显示
@@ -31,6 +36,23 @@ namespace ns_view
             string src_html = template_path + "all_questions.html";
             // 2. 形成数据字典
             ctemplate::TemplateDictionary root("all_questions");
+            root.SetValue("username", username);
+
+            for (const auto &item : recommends)
+            {
+                const auto &q = item.first;
+                const auto score = item.second;
+                ctemplate::TemplateDictionary *sub = root.AddSectionDictionary("recommend_list");
+                sub->SetValue("number", q.number);
+                sub->SetValue("title", q.title);
+                sub->SetValue("star", q.star);
+                {
+                    std::ostringstream oss;
+                    oss.setf(std::ios::fixed);
+                    oss << std::setprecision(4) << score;
+                    sub->SetValue("score", oss.str());
+                }
+            }
             for (const auto &q : questions)
             {
                 ctemplate::TemplateDictionary *sub = root.AddSectionDictionary("question_list");
@@ -46,13 +68,14 @@ namespace ns_view
             tpl->Expand(html, &root);
         }
 
-        void OneExpandHtml(const Question &q, string *html)
+        void OneExpandHtml(const Question &q, const string &username, string *html)
         {
             // 1. 形成路径
             string src_html = template_path + "one_question.html";
 
             // 2. 形成数据字典（不需要循环了，只有一个题目）
             ctemplate::TemplateDictionary root("one_question");
+            root.SetValue("username", username);
             root.SetValue("number", q.number);
             root.SetValue("title", q.title);
             root.SetValue("star", q.star);
@@ -66,11 +89,12 @@ namespace ns_view
             tpl->Expand(html, &root);
         }
 
-        void RecommendExpandHtml(const vector<pair<Question, double>> &recommends, string *html)
+        void RecommendExpandHtml(const vector<pair<Question, double>> &recommends, const string &username, string *html)
         {
             string src_html = template_path + "recommend_questions.html";
 
             ctemplate::TemplateDictionary root("recommend_questions");
+            root.SetValue("username", username);
             for (const auto &item : recommends)
             {
                 const auto &q = item.first;
@@ -79,7 +103,10 @@ namespace ns_view
                 sub->SetValue("number", q.number);
                 sub->SetValue("title", q.title);
                 sub->SetValue("star", q.star);
-                sub->SetValue("score", std::to_string(score));
+                std::ostringstream oss;
+                oss.setf(std::ios::fixed);
+                oss << std::setprecision(4) << score;
+                sub->SetValue("score", oss.str());
             }
 
             ctemplate::Template *tpl = ctemplate::Template::GetTemplate(src_html, ctemplate::DO_NOT_STRIP);

@@ -1,0 +1,62 @@
+1160: No Wormholes Were Harmed...
+
+【Description】
+Description:
+As director of the Causality Infraction Agency, your primary objective is track down and arrest unscrupulous individuals attempting to alter the course of history.
+
+Although your mission briefings include the exact year that a time agent must travel to, the physics of time travel don't make it quite so simple. Time travel can only be done by moving through wormholes that connect two specific instances of time together. As a result, an agent must travel through several wormholes in sequence to reach his or her destination time. In addition, an agent may have to spend some time living in the past or future while waiting for the next wormhole to appear. Traveling through a wormhole also isn't as simple as it might seem: moving forward in time through a wormhole will instanteously age the user by a certain number of years and moving backwards through one will instanteously make the traveller slightly younger.
+
+Because the agency pays its agents based on how many years they've aged since joining the service, you are required to minimize the "aging process" as much as possible for every agent. Your goal therefore is to write a program that finds the optimal itinerary of wormhole jumps for each agent's mission and then reports the total number of years each agent will age after completing their assignment.
+
+For agency accounting purposes, the formulas for computing total years aged on a mission are as follows:
+
+ When starting from some year of origin and simply waiting until some destination year, the age a body accumulates in years equals:
+ destination - origin
+
+ In other words, if you were currently in the year 1785 and had to wait until the year 1793, then you will have aged 8 years.
+
+ 
+ When traveling forward in time through a wormhole that connects one year of departure with a later year of arrival, then the number of years a body ages is equal to:
+ floor((arrival - departure) / 2)
+
+ Put in another way, you will age half the number of years (rounded down) you normally would have had you instead waited for the equivalent number of years to pass by. Note that when traveling over a small enough time difference, the years aged may be rounded down to zero for accounting purposes.
+
+ 
+ When traveling backward in time through a wormhole that connects one year of departure with an earlier year of arrival, then the number of years a body "gains back" by becoming younger is equal to:
+ floor((departure - arrival) / 4)
+
+ In other words, you gain back a quarter of the difference between the two years (rounded down). Note that when traveling over a small enough time difference, the years "gained back" may be rounded down to zero for accounting purposes.
+ A wormhole that starts and ends at the same year is possible, but causes no aging or time travel, and as such serves little purpose other than to confound the scientists.
+
+Each dataset to this problem will contain a starting year from which all agents begin their travels and a list of mission assignments, one for each agent. Every mission assignment includes a final destination year that the agent must travel to. The mission can only be completed if the agent is able to make a round trip by traveling from the starting year to the mission's destination year and then traveling back to the initial starting year again. If such a round trip cannot be completed, then that particular mission is invalid. For the purposes of this problem, you also do not have to consider the maximum lifespan of any given agent. A mission is considered valid as long as a round trip is possible regardless of how high the count of years aged will be.
+
+Input:
+Input to this problem will begin with a line containing a single integer N (1 ≤ N ≤ 100) indicating the number of data sets. Each data set consists of the following components:
+
+ A line containing a single integer W (1 ≤ W ≤ 100) specifying the number of wormholes present for this dataset.
+ A series of W lines of the form "D A" (1 ≤ D, A ≤ 9999), each of which describes a single wormhole. The numbers D and A respectively specify the departure and arrival years of the wormhole's two endpoints in time. A wormhole is unidirectional allowing travel only from its departure year to its arrival year, but not vice-versa.
+ A line containing a single integer S (1 ≤ S ≤ 9999) which is the starting year for all agents.
+ A line containing a single integer M (1 ≤ M ≤ 100) indicating the number of missions to be analyzed.
+ A series of M lines, each containing a single integer F (1 ≤ F ≤ 9999) which specifies the final destination year for each of the M missions.
+
+Output:
+For each data set in the input, output the heading "DATA SET #k" where k is 1 for the first data set, 2 for the second, and so on. Then print M lines showing the results of each of the M missions from the input and in the same relative order as the input. Each of the M lines should contain either a single integer indicating the number of years aged by that respective agent or the words "IMPOSSIBLE" if that particular mission cannot be completed (either because the destination is unreachable or a return trip is not possible).
+
+【Sample Input】
+1
+2
+2011 1956
+1975 2005
+2008
+3
+1969
+2012
+1982
+
+【Sample Output】
+DATA SET #1
+27
+IMPOSSIBLE
+42
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

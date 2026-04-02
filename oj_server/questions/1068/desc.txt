@@ -1,0 +1,20 @@
+1068: C语言程序设计教程（第三版）课后习题8.3
+
+【Description】
+Description:
+写一个判断素数的函数，在主函数输入一个整数，输出是否是素数的消息。
+
+Input:
+一个数
+
+Output:
+如果是素数输出prime
+如果不是输出not prime
+
+【Sample Input】
+97
+
+【Sample Output】
+prime
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

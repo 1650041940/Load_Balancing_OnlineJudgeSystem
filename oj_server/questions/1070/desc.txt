@@ -1,0 +1,19 @@
+1070: C语言程序设计教程（第三版）课后习题8.5
+
+【Description】
+Description:
+写一函数，使输入的一个字符串按反序存放，在主函数中输入输出反序后的字符串。
+
+Input:
+一行字符
+
+Output:
+逆序后的字符串
+
+【Sample Input】
+123456abcdef
+
+【Sample Output】
+fedcba654321
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

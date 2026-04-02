@@ -1,0 +1,106 @@
+1000: A+B Problem
+
+【Description】
+Description:
+Calculate a+b
+
+Input:
+Two integer a,b
+
+Output:
+Output a+b
+
+HINT:
+Here is a sample solution for problem 1000 using C++:
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+ int a,b;
+
+ while(cin >> a >> b)
+
+ cout << a+b << endl;
+
+ return 0;
+
+}
+
+ Here is a sample solution for problem 1000 using C:
+
+#include <stdio.h>
+
+int main(){
+
+ int a,b;
+
+ while(scanf("%d %d",&a, &b) != EOF)
+
+ printf("%d\n",a+b);
+
+ return 0;
+
+}
+
+ Here is a sample solution for problem 1000 using PASCAL:
+
+program p1001(Input,Output); 
+
+var 
+
+ a,b:Integer; 
+
+begin 
+
+ while not eof(Input) do 
+
+ begin 
+
+ Readln(a,b); 
+
+ Writeln(a+b); 
+
+ end; 
+
+end.
+
+ 
+
+Here is a sample solution for problem 1000 using Java:
+
+import java.util.*;
+
+public class Main{
+
+ public static void main(String args[]){
+
+ Scanner cin = new Scanner(System.in);
+
+ int a, b;
+
+ while (cin.hasNext()){
+
+ a = cin.nextInt(); b = cin.nextInt();
+
+ System.out.println(a + b);
+
+ }
+
+ }
+
+}
+
+【Sample Input】
+1 2
+2 5
+10 20
+
+【Sample Output】
+3
+7
+30
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

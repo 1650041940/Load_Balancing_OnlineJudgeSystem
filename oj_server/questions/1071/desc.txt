@@ -1,0 +1,20 @@
+1071: C语言程序设计教程（第三版）课后习题8.6
+
+【Description】
+Description:
+写一函数，将两个字符串连接
+
+Input:
+两行字符串
+
+Output:
+链接后的字符串
+
+【Sample Input】
+123
+abc
+
+【Sample Output】
+123abc
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

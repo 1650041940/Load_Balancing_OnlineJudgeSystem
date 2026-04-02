@@ -1,0 +1,52 @@
+1174: 2005年春浙江省计算机等级考试二级C 编程题(1)
+
+【Description】
+Description:
+Normal
+0
+
+7.8 磅
+0
+2
+
+false
+false
+false
+
+MicrosoftInternetExplorer4
+
+/* Style Definitions */
+table.MsoNormalTable
+{mso-style-name:普通表格;
+mso-tstyle-rowband-size:0;
+mso-tstyle-colband-size:0;
+mso-style-noshow:yes;
+mso-style-parent:"";
+mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+mso-para-margin:0cm;
+mso-para-margin-bottom:.0001pt;
+mso-pagination:widow-orphan;
+font-size:10.0pt;
+font-family:"Times New Roman";
+mso-fareast-font-family:"Times New Roman";
+mso-ansi-language:#0400;
+mso-fareast-language:#0400;
+mso-bidi-language:#0400;}
+
+输入x ，计算并输出下列分段函数 f(x) 的值。可以调用数学库函数：平方根函数sqrt(),绝对值函数fabs() 和幂函数 pow()。
+
+ 保留2位小数
+
+Input:
+x
+
+Output:
+f(x)
+
+【Sample Input】
+5
+
+【Sample Output】
+15.00
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

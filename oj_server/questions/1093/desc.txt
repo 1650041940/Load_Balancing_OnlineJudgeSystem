@@ -1,0 +1,39 @@
+1093: You are my brother
+
+【Description】
+Description:
+h2 { margin-top: 0.05cm; margin-bottom: 0.05cm; color: rgb(0, 0, 0); line-height: 0.78cm; page-break-inside: avoid; }h2.western { font-family: "Times New Roman",serif; font-size: 14pt; }h2.cjk { font-family: "宋体","SimSun"; font-size: 14pt; font-style: normal; }h2.ctl { font-family: "Calibri",sans-serif; font-size: 16pt; }p { margin-bottom: 0.21cm; }
+Little A gets to know a new friend, Little B, recently. One day, they realize that they are family 500 years ago. Now, Little A wants to know whether Little B is his elder, younger or brother.
+
+Input:
+p { margin-bottom: 0.21cm; }
+There are multiple test cases.
+
+For each test case, the first line has a single integer, n (n<=1000). The next n lines have two integers a and b (1<=a,b<=2000) each, indicating b is the father of a. One person has exactly one father, of course. Little A is numbered 1 and Little B is numbered 2.
+
+Proceed to the end of file.
+
+Output:
+h2 { margin-top: 0.05cm; margin-bottom: 0.05cm; color: rgb(0, 0, 0); line-height: 0.78cm; page-break-inside: avoid; }h2.western { font-family: "Times New Roman",serif; font-size: 14pt; }h2.cjk { font-family: "宋体","SimSun"; font-size: 14pt; font-style: normal; }h2.ctl { font-family: "Calibri",sans-serif; font-size: 16pt; }p { margin-bottom: 0.21cm; }
+For each test case, if Little B is Little A’s younger, print “You are my younger”. Otherwise, if Little B is Little A’s elder, print “You are my elder”. Otherwise, print “You are my brother”. The output for each test case occupied exactly one line.
+
+【Sample Input】
+5
+1 3
+2 4
+3 5
+4 6
+5 6
+6
+1 3
+2 4
+3 5
+4 6
+5 7
+6 7
+
+【Sample Output】
+You are my elder
+You are my brother
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

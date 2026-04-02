@@ -1,0 +1,49 @@
+1095: SPY
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+The National Intelligence Council of X Nation receives a piece of credible information that Nation Y will send spies to steal Nation X’s confidential paper. So the commander of The National Intelligence Council take measures immediately, he will investigate people who will come into NationX. At the same time, there are two List in the Commander’s hand, one is full of spies that Nation Y will send to Nation X, and the other one is full of spies that Nation X has sent to Nation Y before. There may be some overlaps of the two list. Because the spy may act two roles at the same time, which means that he may be the one that is sent from Nation X to Nation Y, we just call this type a “dual-spy”. So Nation Y may send “dual_spy” back to Nation X, and it is obvious now that it is good for Nation X, because “dual_spy” may bring back NationY’s confidential paper without worrying to be detention by NationY’s frontier So the commander decides to seize those that are sent by NationY, and let the ordinary people and the “dual_spy” in at the same time .So can you decide a list that should be caught by the Commander?
+
+A:the list contains that will come to the NationX’s frontier.
+
+B:the list contains spies that will be sent by Nation Y.
+
+C:the list contains spies that were sent to NationY before.
+
+Input:
+p { margin-bottom: 0.21cm; }
+There are several test cases.
+
+Each test case contains four parts, the first part contains 3 positive integers A, B, C, and A is the number which will come into the frontier. B is the number that will be sent by Nation Y, and C is the number that NationX has sent to NationY before. 
+
+The second part contains A strings, the name list of that will come into the frontier.
+
+The second part contains B strings, the name list of that are sent by NationY.
+
+The second part contains C strings, the name list of the “dual_spy”.
+
+There will be a blank line after each test case.
+
+There won’t be any repetitive names in a single list, if repetitive names appear in two lists, they mean the same people.
+
+Output:
+p { margin-bottom: 0.21cm; }
+Output the list that the commander should caught (in the appearance order of the lists B).if no one should be caught, then , you should output “No enemy spy”.
+
+【Sample Input】
+8 4 3
+Zhao Qian Sun Li Zhou Wu Zheng Wang
+Zhao Qian Sun Li
+Zhao Zhou Zheng
+2 2 2
+Zhao Qian
+Zhao Qian
+Zhao Qian
+Qian Sun Li
+
+【Sample Output】
+Qian Sun Li
+No enemy spy
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

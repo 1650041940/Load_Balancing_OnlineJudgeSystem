@@ -1,0 +1,17 @@
+1192: C二级辅导-打印图形
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+打印出以下图形。
+
+【Sample Input】
+4
+
+【Sample Output】
+*
+ ***
+ *****
+*******
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

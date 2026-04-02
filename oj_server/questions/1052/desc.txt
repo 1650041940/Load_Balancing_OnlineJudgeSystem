@@ -1,0 +1,19 @@
+1052: C语言程序设计教程（第三版）课后习题6.3
+
+【Description】
+Description:
+求Sn=a+aa+aaa+…+aa…aaa（有n个a）之值，其中a是一个数字。 例如：2+22+222+2222+22222（n=5），n由键盘输入。并且已知a=2.
+
+Input:
+n
+
+Output:
+和
+
+【Sample Input】
+5
+
+【Sample Output】
+24690
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

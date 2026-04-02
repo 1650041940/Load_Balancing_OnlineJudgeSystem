@@ -1,0 +1,32 @@
+1119: WHUgirls
+
+【Description】
+Description:
+There are many pretty girls in Wuhan University, and as we know, every girl loves pretty clothes, so do they. One day some of them got a huge rectangular cloth and they want to cut it into small rectangular pieces to make scarves. But different girls like different style, and they voted each style a price wrote down on a list. They have a machine which can cut one cloth into exactly two smaller rectangular pieces horizontally or vertically, and ask you to use this machine to cut the original huge cloth into pieces appeared in the list. Girls wish to get the highest profit from the small pieces after cutting, so you need to find out a best cutting strategy. You are free to make as many scarves of a given style as you wish, or none if desired. Of course, the girls do not require you to use all the cloth.
+
+Input:
+The first line of input consists of an integer T, indicating the number of test cases.
+
+The first line of each case consists of three integers N, X, Y, N indicating there are N kinds of rectangular that you can cut in and made to scarves; X, Y indicating the dimension of the original cloth. The next N lines, each line consists of two integers, xi, yi, ci, indicating the dimension and the price of the ith rectangular piece cloth you can cut in.
+
+Output:
+Output the maximum sum of prices that you can get on a single line for each case.
+
+Constrains
+
+0 < T <= 20
+
+0 <= N <= 10; 0 < X, Y <= 1000
+
+0 < xi <= X; 0 < yi <= Y; 0 <= ci <= 1000
+
+【Sample Input】
+1
+2 4 4
+2 2 2
+3 3 9
+
+【Sample Output】
+9
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

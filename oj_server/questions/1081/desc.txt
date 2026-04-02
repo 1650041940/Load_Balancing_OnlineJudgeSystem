@@ -1,0 +1,19 @@
+1081: C语言程序设计教程（第三版）课后习题9.10
+
+【Description】
+Description:
+输入一行电报文字，将字母变成其下一字母（如’a’变成’b’……’z’变成’ａ’其它字符不变）。
+
+Input:
+一行字符
+
+Output:
+加密处理后的字符
+
+【Sample Input】
+a b
+
+【Sample Output】
+b c
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

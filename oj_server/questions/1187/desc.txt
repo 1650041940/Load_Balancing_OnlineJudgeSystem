@@ -1,0 +1,18 @@
+1187: C二级辅导-统计字符
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+
+输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。
+
+【Sample Input】
+a 1,
+
+【Sample Output】
+1
+1
+1
+1
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

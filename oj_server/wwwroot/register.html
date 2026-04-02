@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>注册 - Online OJ</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="inner">
+            <div class="left">
+                <a class="brand" href="/">Online OJ</a>
+                <a href="/all_questions">题库</a>
+                <a href="/recommend">为你推荐</a>
+            </div>
+            <div class="right">
+                <a href="/login">登录</a>
+                <a href="/register">注册</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="hero">
+            <h1>注册账号</h1>
+            <p>演示版账号仅绑定“用户名 → uid”，不需要密码。用户名将用于区分你的推荐与做题记录。</p>
+        </div>
+
+        <div class="card" style="margin-top:14px; max-width:560px;">
+            <div class="hd">
+                <h2>创建用户名</h2>
+                <p>规则：仅字母/数字/下划线，长度 3~20</p>
+            </div>
+            <div class="bd">
+                <div class="form">
+                    <input class="input" id="username" placeholder="例如: Youster_01" />
+                    <button class="btn primary" onclick="doRegister()">注册并进入题库</button>
+                    <div id="msg"></div>
+                    <div class="notice">已有账号？<a href="/login">去登录</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setMsg(cls, text) {
+            $("#msg").html('<div class="notice ' + cls + '">' + text + '</div>');
+        }
+
+        function doRegister() {
+            var username = $("#username").val();
+            setMsg("", "正在注册...");
+            $.ajax({
+                method: 'Post',
+                url: '/api/register',
+                dataType: 'json',
+                contentType: 'application/json;charset=utf-8',
+                data: JSON.stringify({ username: username }),
+                success: function (data) {
+                    if (data && data.ok) {
+                        setMsg("ok", "注册成功，正在跳转...");
+                        setTimeout(function () { window.location.href = '/all_questions'; }, 300);
+                        return;
+                    }
+                    setMsg("err", (data && data.error) ? data.error : '注册失败');
+                },
+                error: function (xhr) {
+                    var err = '注册失败';
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        if (data && data.error) err = data.error;
+                    } catch (e) { }
+                    setMsg("err", err);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

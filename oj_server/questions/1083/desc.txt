@@ -1,0 +1,23 @@
+1083: C语言程序设计教程（第三版）课后习题10.2
+
+【Description】
+Description:
+输入三个字符串，按由小到大的顺序输出
+
+Input:
+3行字符串
+
+Output:
+按照从小到大输出成3行
+
+【Sample Input】
+cde
+afg
+abc
+
+【Sample Output】
+abc
+afg
+cde
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

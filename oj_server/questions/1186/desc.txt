@@ -1,0 +1,16 @@
+1186: C二级辅导-公约公倍
+
+【Description】
+Description:
+p { margin-bottom: 0.21cm; }
+
+输入两个正整数m和n，求其最大公约数和最小公倍数。
+
+【Sample Input】
+2 3
+
+【Sample Output】
+1
+6
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

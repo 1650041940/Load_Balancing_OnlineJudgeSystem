@@ -1,0 +1,23 @@
+1163: 1999年秋浙江省计算机等级考试二级C 编程题(2)
+
+【Description】
+Description:
+编制程序，统计文本中字符$出现的次数，并将结果输出
+
+Input:
+字符文本
+
+Output:
+$次数
+
+HINT:
+
+【Sample Input】
+as$dfkjhkjkjdhf
+asdfkj$lskdfj
+werijweirjo$wie
+
+【Sample Output】
+3
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。

@@ -1,0 +1,30 @@
+1046: C语言程序设计教程（第三版）课后习题5.5
+
+【Description】
+Description:
+有一个函数
+
+y={ x      x<1
+
+    | 2x-1   1<=x<10
+
+    \ 3x-11  x>=10
+
+写一段程序，输入x，输出y
+
+Input:
+一个数x
+
+Output:
+一个数y
+
+HINT:
+使用函数
+
+【Sample Input】
+14
+
+【Sample Output】
+31
+
+提示：本题使用‘样例判题’（仅对比题面样例输出）。
