@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线OJ-推荐题目</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .container .navbar {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .container .navbar a {
+            display: inline-block;
+            width: 80px;
+            color: white;
+            font-size: large;
+            line-height: 50px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .container .navbar a:hover {
+            background-color: green;
+        }
+
+        .container .navbar .login {
+            float: right;
+        }
+
+        .container .recommend_list {
+            padding-top: 50px;
+            width: 900px;
+            height: 100%;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        .container .recommend_list table {
+            width: 100%;
+            font-size: large;
+            margin-top: 50px;
+            background-color: rgb(243, 248, 246);
+        }
+
+        .container .recommend_list h1 {
+            color: green;
+        }
+
+        .container .recommend_list table .item {
+            width: 120px;
+            height: 40px;
+            font-size: large;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container .recommend_list table .item a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .container .recommend_list table .item a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .container .footer {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #ccc;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="/">首页</a>
+            <a href="/all_questions">题库</a>
+            <a href="/recommend">推荐</a>
+            <a href="#">竞赛</a>
+            <a href="#">讨论</a>
+            <a href="#">求职</a>
+            <a class="login" href="#">登录</a>
+        </div>
+        <div class="recommend_list">
+            <h1>为你推荐</h1>
+            <table>
+                <tr>
+                    <th class="item">编号</th>
+                    <th class="item">标题</th>
+                    <th class="item">难度</th>
+                    <th class="item">评分</th>
+                </tr>
+                {{#recommend_list}}
+                <tr>
+                    <td class="item">{{number}}</td>
+                    <td class="item"><a href="/question/{{number}}">{{title}}</a></td>
+                    <td class="item">{{star}}</td>
+                    <td class="item">{{score}}</td>
+                </tr>
+                {{/recommend_list}}
+            </table>
+        </div>
+        <div class="footer">
+            <h4>@online-oj</h4>
+        </div>
+    </div>
+
+</body>
+
+</html>
